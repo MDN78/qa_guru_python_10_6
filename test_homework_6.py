@@ -64,6 +64,7 @@ def test_find_suitable_user():
         {"name": "Maria", "age": 18},
     ]
 
+
 # Сделайте функцию, которая будет печатать
 # читаемое имя переданной ей функции и значений аргументов.
 # Вызовите ее внутри функций, описанных ниже
@@ -80,10 +81,12 @@ def test_readable_function():
     go_to_companyname_homepage(page_url="https://companyname.com")
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
-def readable_function(func, *args, **kwargs):
+
+def readable_function(func, *args):
     f_name = func.__name__.replace('_', ' ').title()
-    f_arg = ", ".join([*args, *kwargs.values()])
+    f_arg = ", ".join(args)
     return f"{f_name} [{f_arg}]"
+
 
 def open_browser(browser_name):
     actual_result = readable_function(open_browser, browser_name)
